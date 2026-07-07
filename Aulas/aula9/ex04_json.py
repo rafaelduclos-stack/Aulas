@@ -8,8 +8,6 @@ produtos = [
     {"id":3,"nome":"Chiclete","preco":2,"disponivel":False}
 ]
 
-disponiveis = {k: v for k, v in produtos if v == True}
-
 #listar tudo
 @app.route("/produtos")
 def produto():
@@ -27,7 +25,11 @@ def listar_id(id):
 #listar disponivies
 @app.route("/produtos/disponiveis")
 
-def listar_disponiveis(disponiveis):
+def listar_disponiveis():
+    disponiveis = []
+    for produto in produtos:
+        if produto["disponivel"] == True:
+            disponiveis.append(produto)
     return jsonify(disponiveis)
 
 if __name__ == "__main__":
