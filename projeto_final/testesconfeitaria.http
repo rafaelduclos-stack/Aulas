@@ -1,0 +1,134 @@
+### listar produto
+GET http://127.0.0.1:5000/produtos
+
+### criar produto
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+  "nome": "Bolo Base Chocolate",
+  "categoria": "Bolos",
+  "quantidade": 30,
+  "preco": 30.0
+}
+
+###
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+  "nome": "Bolo Dois Andares",
+  "categoria": "Bolos",
+  "quantidade": 12,
+  "preco": 150.0
+}
+
+###
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+  "nome": "Bolo com Bomba dentro",
+  "categoria": "Terrorismo",
+  "quantidade": 99999,
+  "preco": 1000000.0
+}
+
+### criar com dados invalidos (retorna 400)
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+  "nome": "Sem preco"
+}
+
+### buscar produto por id
+GET http://127.0.0.1:5000/produtos/1
+
+###
+GET http://127.0.0.1:5000/produtos/3
+
+### buscar produto inexistente (retorna 404)
+GET http://127.0.0.1:5000/produtos/6767
+
+### atualizar produto
+PUT http://127.0.0.1:5000/produtos/1
+Content-Type: application/json
+
+{
+  "nome": "Bolo Base Chocolate Premium",
+  "categoria": "Bolos",
+  "quantidade": 19,
+  "preco": 35.0
+}
+
+### listar bolos
+GET http://127.0.0.1:5000/bolos
+
+### criar bolo vinculado ao produto 1
+POST http://127.0.0.1:5000/bolos
+Content-Type: application/json
+
+{
+  "nome": "Bolo de Chocolate com Morango",
+  "sabor": "chocolate",
+  "tamanho": "Grande",
+  "produto_id": 1
+}
+
+### criar bolo vinculado ao produto 2
+POST http://127.0.0.1:5000/bolos
+Content-Type: application/json
+
+{
+  "nome": "Bolo de Chocolate com Morango",
+  "sabor": "doce de leite",
+  "tamanho": "Medio",
+  "produto_id": 2
+}
+
+### criar bolo com produto_id inexistente (retorna 400)
+POST http://127.0.0.1:5000/bolos
+Content-Type: application/json
+
+{
+  "nome": "Bolo Fantasma",
+  "sabor": "baunilha",
+  "tamanho": "Medio",
+  "produto_id": 999
+}
+
+### buscar bolo pelo id (rota com join, retorna produto_nome)
+GET http://127.0.0.1:5000/bolos/1
+
+###
+GET http://127.0.0.1:5000/bolos/2
+
+### buscar bolo inexistente (retorna 404)
+GET http://127.0.0.1:5000/bolos/67
+
+### atualizar bolo
+PUT http://127.0.0.1:5000/bolos/1
+Content-Type: application/json
+
+{
+  "nome": "Bolo de Chocolate com Morango Especial",
+  "sabor": "chocolate",
+  "tamanho": "Pequeno",
+  "produto_id": 1
+}
+
+### filtro por caminho: bolos de um produto especifico
+GET http://127.0.0.1:5000/produtos/1/bolos
+
+### filtro por query string
+GET http://127.0.0.1:5000/bolos/busca?nome=choco
+
+### apagar bolo
+DELETE http://127.0.0.1:5000/bolos/1
+
+### apagar produto
+DELETE http://127.0.0.1:5000/produtos/1
+
+### apagar produto ja apagado (retorna 404)
+DELETE http://127.0.0.1:5000/produtos/1
