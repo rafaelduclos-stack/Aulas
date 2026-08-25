@@ -1,0 +1,28 @@
+GET http://127.0.0.1:5000/produtos
+
+
+###
+
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+    "nome": "Chocolate",
+    "preco": 10.50
+}
+
+
+###
+
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+    "nome": "Refrigerante",
+    "preco": 7.50
+}
+
+
+###
+
+GET http://127.0.0.1:5000/produtos
