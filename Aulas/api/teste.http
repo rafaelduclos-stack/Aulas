@@ -1,0 +1,36 @@
+### criar aluno 1
+POST http://127.0.0.1:5000/alunos
+Content-Type: application/json
+
+{
+    "nome": "Joao",
+    "idade": 17
+}
+
+
+### criar aluno 2
+POST http://127.0.0.1:5000/alunos
+Content-Type: application/json
+
+{
+    "nome": "Maria",
+    "idade": 18
+}
+
+
+### criar aluno 3
+POST http://127.0.0.1:5000/alunos
+Content-Type: application/json
+
+{
+    "nome": "Carlos",
+    "idade": 17
+}
+
+
+### listar alunos
+GET http://127.0.0.1:5000/alunos
+
+
+### buscar por id 2
+GET http://127.0.0.1:5000/alunos/2
